@@ -3,7 +3,10 @@ variable "public_dns_zones" {
   type = map(object(
     {
       name                = string
+      subdomain = optional(string, null)
       resource_group_name = string
+      subdomain_resource_group_name = optional(string, null)
+      ttl = optional(number)
       tags                = map(any)
     }
   ))

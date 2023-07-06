@@ -1,5 +1,5 @@
 resource "azurerm_dns_zone" "public_dns_zone" {
-  for_each ={
+  for_each = {
     for key, value in var.public_dns_zones : key => value
     if value.subdomain == null
   }
@@ -11,7 +11,7 @@ resource "azurerm_dns_zone" "public_dns_zone" {
 }
 
 resource "azurerm_dns_zone" "public_dns_subdomain" {
-  for_each ={
+  for_each = {
     for key, value in var.public_dns_zones : key => value
     if value.subdomain != null
   }
@@ -22,7 +22,7 @@ resource "azurerm_dns_zone" "public_dns_subdomain" {
 }
 
 resource "azurerm_dns_ns_record" "public_dns_zone" {
-for_each ={
+  for_each = {
     for key, value in var.public_dns_zones : key => value
     if value.subdomain != null
   }

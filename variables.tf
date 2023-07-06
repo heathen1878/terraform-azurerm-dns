@@ -2,12 +2,12 @@ variable "public_dns_zones" {
   description = "A map of public DNS zone to create and manage"
   type = map(object(
     {
-      name                = string
-      subdomain = optional(string, null)
-      resource_group_name = string
+      name                          = string
+      subdomain                     = optional(string, null)
+      resource_group_name           = string
       subdomain_resource_group_name = optional(string, null)
-      ttl = optional(number)
-      tags                = map(any)
+      ttl                           = optional(number)
+      tags                          = map(any)
     }
   ))
 

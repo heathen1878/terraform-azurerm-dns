@@ -44,7 +44,13 @@ variable "private_dns_zones" {
       tags                 = map(any)
       virtual_network_id   = string
       virtual_network_name = string
+      link_only            = optional(bool, false)
     }
   ))
 
+}
+
+variable "management_subscription" {
+  description = "The subscription to use for the AzureRM provider alias. It's only used if cross_subscription vNet peers are required."
+  type        = string
 }

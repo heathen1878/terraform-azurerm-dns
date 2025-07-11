@@ -1,22 +1,8 @@
-public_dns_zones = {
-  dns_zone_key = {
-    name = "public_dns_zone_name"
-    resource_group_name = "resource_group_name"
-    tags = {
-      key = "value"
-    }
-  }
-}
+module "public_dns" {
 
-private_dns_zones = {
-  dns_zone_key = {
-    name                = "private_dns_zone_name"
-    resource_group_name = "resource_group_name"
-    tags = {
-      key = "value"
-    }
-    virtual_network_id   = "resource_id"
-    virtual_network_name = "resource_name"
-  }
-}
+  source = "../.."
 
+  create_public_dns_zone              = true
+  public_dns_zone_name                = "domain.com"
+  public_dns_zone_resource_group_name = "resource group name"
+}
